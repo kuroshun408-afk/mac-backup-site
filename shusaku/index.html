@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高橋周作 | Official Web Site（モック）</title>
+<meta name="description" content="シンガーソングライター 高橋周作の公式サイト（デザイン見本）。プロフィール、ライブ情報、音源・動画、お問い合わせ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3e9d6;
+    --paper-dark:#e6d7bb;
+    --ink:#2b2118;
+    --ink-soft:#5a4a3a;
+    --rust:#a8402b;
+    --mustard:#c9962b;
+    --olive:#5d6b3f;
+    --line:rgba(43,33,24,.22);
+    --shadow:0 10px 30px rgba(43,33,24,.18);
+    --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --serif-en:"Playfair Display",Georgia,serif;
+    --type:"Special Elite","Courier New",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);font-family:var(--serif-jp);line-height:1.9;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.35), transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(168,64,43,.10), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(43,33,24,.025) 0 1px, transparent 1px 3px);
+  }
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* mock banner */
+  .mock{
+    background:var(--ink);color:var(--paper);font-family:var(--type);font-size:13px;
+    text-align:center;padding:8px 14px;letter-spacing:.04em;
+  }
+  .mock b{color:var(--mustard)}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:10;background:rgba(243,233,214,.92);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--ink);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--serif-en);font-weight:900;font-size:20px;letter-spacing:.06em;text-decoration:none}
+  .brand small{display:block;font-family:var(--serif-jp);font-weight:500;font-size:11px;letter-spacing:.3em;color:var(--ink-soft)}
+  nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+  nav a{text-decoration:none;font-family:var(--type);font-size:14px;letter-spacing:.08em;border-bottom:1px dotted transparent}
+  nav a:hover{border-bottom-color:var(--rust);color:var(--rust)}
+  .menu-btn{display:none;background:none;border:2px solid var(--ink);padding:6px 10px;font-family:var(--type);cursor:pointer}
+  @media (max-width:720px){
+    nav ul{display:none;position:absolute;left:0;right:0;top:64px;background:var(--paper);border-bottom:2px solid var(--ink);flex-direction:column;gap:0;padding:8px 20px 16px}
+    nav ul.open{display:flex}
+    nav li{padding:10px 0;border-bottom:1px dotted var(--line)}
+    .menu-btn{display:block}
+  }
+
+  /* hero */
+  .hero{position:relative;padding:72px 0 64px;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+  .stamp{
+    display:inline-block;font-family:var(--type);font-size:12px;letter-spacing:.2em;
+    border:2px solid var(--rust);color:var(--rust);padding:4px 10px;transform:rotate(-3deg);margin-bottom:18px
+  }
+  .hero h1{font-family:var(--serif-jp);font-weight:700;font-size:clamp(40px,7vw,76px);line-height:1.1;margin:0 0 10px;letter-spacing:.06em}
+  .hero .en{font-family:var(--serif-en);font-style:italic;font-size:clamp(18px,2.6vw,26px);color:var(--ink-soft);margin:0 0 22px}
+  .hero p.lead{font-size:16px;max-width:36em;margin:0 0 28px;color:var(--ink-soft)}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-block;text-decoration:none;font-family:var(--type);font-size:14px;letter-spacing:.1em;
+    padding:12px 22px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--mustard);
+    transition:transform .1s
+  }
+  .btn:hover{transform:translate(-2px,-2px)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:4px 4px 0 var(--rust)}
+
+  /* vinyl */
+  .vinyl{position:relative;aspect-ratio:1/1;max-width:420px;margin:0 auto}
+  .vinyl svg{width:100%;height:100%;filter:drop-shadow(var(--shadow))}
+  .vinyl .spin{animation:spin 14s linear infinite;transform-origin:50% 50%}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.vinyl .spin{animation:none}}
+  .photo-note{position:absolute;bottom:-6px;right:-6px;background:#fff8e8;border:1px solid var(--line);padding:6px 10px;font-family:var(--type);font-size:11px;transform:rotate(2deg);box-shadow:var(--shadow)}
+
+  /* sections */
+  section{padding:72px 0;border-top:2px solid var(--ink)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--serif-en);font-weight:900;font-size:clamp(32px,5vw,52px);margin:0;letter-spacing:.02em}
+  .sec-head span{font-family:var(--serif-jp);font-size:14px;letter-spacing:.3em;color:var(--rust)}
+  .sample{font-family:var(--type);font-size:11px;color:var(--ink-soft);border:1px dashed var(--ink-soft);padding:2px 8px;margin-left:auto}
+
+  /* profile */
+  .profile{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
+  @media (max-width:860px){.profile{grid-template-columns:1fr}}
+  .polaroid{background:#fffaf0;padding:14px 14px 42px;box-shadow:var(--shadow);transform:rotate(-2deg);position:relative}
+  .polaroid .ph{aspect-ratio:4/5;background:
+      linear-gradient(135deg,#7a6a55,#3d3128);display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:var(--type);font-size:13px;text-align:center;padding:20px}
+  .polaroid figcaption{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--type);font-size:13px;color:var(--ink-soft)}
+  .profile h3{font-size:24px;margin:0 0 6px;letter-spacing:.1em}
+  .profile .kana{font-family:var(--type);font-size:13px;color:var(--ink-soft);letter-spacing:.2em;margin-bottom:18px}
+  .profile p{margin:0 0 16px}
+  dl.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:22px 0 0;padding:18px 0 0;border-top:1px dotted var(--line);font-size:15px}
+  dl.facts dt{font-family:var(--type);color:var(--rust);letter-spacing:.1em}
+  dl.facts dd{margin:0}
+
+  /* live */
+  .live-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .live-list li{display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+  @media (max-width:640px){.live-list li{grid-template-columns:1fr;gap:8px}}
+  .date{font-family:var(--serif-en);font-weight:700;font-size:28px;line-height:1}
+  .date small{display:block;font-family:var(--type);font-size:12px;font-weight:400;color:var(--rust);letter-spacing:.15em;margin-top:4px}
+  .live-list h4{margin:0 0 4px;font-size:18px}
+  .live-list p{margin:0;font-size:14px;color:var(--ink-soft)}
+  .ticket{font-family:var(--type);font-size:13px;text-decoration:none;border:2px solid var(--ink);padding:8px 14px;white-space:nowrap}
+  .ticket:hover{background:var(--ink);color:var(--paper)}
+  .ticket.soldout{opacity:.5;pointer-events:none}
+
+  /* music */
+  .music-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media (max-width:860px){.music-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.music-grid{grid-template-columns:1fr}}
+  .card{background:#fffaf0;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .card .cover{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .cover.c1{background:radial-gradient(circle at 30% 30%,#d9b56a,#a8402b 70%)}
+  .cover.c2{background:radial-gradient(circle at 70% 40%,#9fb07a,#5d6b3f 70%)}
+  .cover.c3{background:radial-gradient(circle at 40% 70%,#8c7b6a,#2b2118 75%)}
+  .cover .play{width:64px;height:64px;border-radius:50%;background:rgba(243,233,214,.92);display:grid;place-items:center;box-shadow:var(--shadow)}
+  .cover .play::after{content:"";border-left:20px solid var(--ink);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+  .card .body{padding:16px 18px 18px}
+  .card h4{margin:0 0 4px;font-size:18px}
+  .card p{margin:0 0 12px;font-size:13px;color:var(--ink-soft);font-family:var(--type)}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  .links a{font-family:var(--type);font-size:12px;text-decoration:none;border:1px solid var(--ink);padding:4px 10px}
+  .links a:hover{background:var(--ink);color:var(--paper)}
+  .video{margin-top:40px;background:var(--ink);aspect-ratio:16/9;display:grid;place-items:center;color:var(--paper);font-family:var(--type);text-align:center;padding:20px;box-shadow:var(--shadow)}
+  .video small{display:block;opacity:.7;margin-top:8px;font-size:12px}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  @media (max-width:860px){.contact{grid-template-columns:1fr}}
+  .contact p{margin:0 0 18px}
+  form{background:#fffaf0;border:1px solid var(--line);padding:26px;box-shadow:var(--shadow)}
+  label{display:block;font-family:var(--type);font-size:13px;letter-spacing:.1em;margin:14px 0 6px;color:var(--rust)}
+  input,select,textarea{width:100%;font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--ink);background:var(--paper);color:var(--ink)}
+  textarea{min-height:120px;resize:vertical}
+  .sns{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+  .sns a{font-family:var(--type);font-size:13px;text-decoration:none;border:2px solid var(--ink);padding:8px 14px}
+  .sns a:hover{background:var(--rust);border-color:var(--rust);color:var(--paper)}
+
+  footer{border-top:2px solid var(--ink);padding:34px 0 50px;text-align:center;font-family:var(--type);font-size:12px;color:var(--ink-soft)}
+  footer .brand{display:inline-block;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="mock">※ このページは <b>デザイン見本（モック）</b> です。文章・日程・曲名はすべて仮の内容で、実際の情報ではありません。</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">SHUSAKU TAKAHASHI<small>高橋周作</small></a>
+    <nav>
+      <button class="menu-btn" aria-label="メニュー" onclick="document.getElementById('menu').classList.toggle('open')">MENU</button>
+      <ul id="menu">
+        <li><a href="#profile">PROFILE</a></li>
+        <li><a href="#live">LIVE</a></li>
+        <li><a href="#music">MUSIC</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:none">
+    <div class="wrap">
+      <div>
+        <span class="stamp">SINGER-SONGWRITER</span>
+        <h1>高橋周作</h1>
+        <p class="en">Shusaku Takahashi — Official Web Site</p>
+        <p class="lead">ギターと歌、ひとつの声で届ける。日々の景色をそのまま歌にするシンガーソングライター。（※仮のキャッチコピーです）</p>
+        <div class="btns">
+          <a class="btn" href="#live">ライブ情報を見る</a>
+          <a class="btn ghost" href="#music">音源・動画</a>
+        </div>
+      </div>
+      <div class="vinyl" aria-hidden="true">
+        <svg viewBox="0 0 400 400" class="spin">
+          <defs>
+            <radialGradient id="g" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#3a2f27"/>
+              <stop offset="1" stop-color="#1c1510"/>
+            </radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="196" fill="url(#g)"/>
+          <g fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1">
+            <circle cx="200" cy="200" r="180"/><circle cx="200" cy="200" r="168"/><circle cx="200" cy="200" r="156"/>
+            <circle cx="200" cy="200" r="144"/><circle cx="200" cy="200" r="132"/><circle cx="200" cy="200" r="120"/>
+            <circle cx="200" cy="200" r="108"/><circle cx="200" cy="200" r="96"/>
+          </g>
+          <path d="M60 200a140 140 0 0 1 60-115" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="200" cy="200" r="70" fill="#c9962b"/>
+          <circle cx="200" cy="200" r="70" fill="none" stroke="#a8402b" stroke-width="10"/>
+          <text x="200" y="192" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="20" fill="#2b2118">SHUSAKU</text>
+          <text x="200" y="214" text-anchor="middle" font-family="Special Elite,monospace" font-size="11" fill="#2b2118" letter-spacing="2">TAKAHASHI</text>
+          <circle cx="200" cy="200" r="6" fill="#2b2118"/>
+        </svg>
+        <div class="photo-note">ここにアーティスト写真が入ります</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="wrap">
+      <div class="sec-head"><h2>Profile</h2><span>プロフィール</span><span class="sample">SAMPLE TEXT</span></div>
+      <div class="profile">
+        <figure class="polaroid">
+          <div class="ph">アーティスト写真<br>（Instagramの音楽活動の写真を使用予定）</div>
+          <figcaption>Shusaku Takahashi</figcaption>
+        </figure>
+        <div>
+          <h3>高橋周作</h3>
+          <div class="kana">TAKAHASHI SHUSAKU / SINGER-SONGWRITER</div>
+          <p>アコースティックギターの弾き語りを中心に活動するシンガーソングライター。等身大の言葉と、どこか懐かしいメロディで、聴く人の日常にそっと寄り添う歌を届けている。</p>
+          <p>ライブハウスやカフェ、路上など場所を選ばず歌い続け、作詞・作曲はすべて自身で手がける。（※この紹介文は仮のものです。ご本人に確認した内容に差し替えます）</p>
+          <dl class="facts">
+            <dt>GENRE</dt><dd>フォーク / アコースティック / ポップス（仮）</dd>
+            <dt>STYLE</dt><dd>ギター弾き語り</dd>
+            <dt>AREA</dt><dd>活動エリア（確認後に記載）</dd>
+            <dt>SNS</dt><dd><a href="https://www.instagram.com/syusaku.t_sql" target="_blank" rel="noopener">Instagram @syusaku.t_sql</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live">
+    <div class="wrap">
+      <div class="sec-head"><h2>Live</h2><span>ライブ・イベント情報</span><span class="sample">SAMPLE SCHEDULE</span></div>
+      <ul class="live-list">
+        <li>
+          <div class="date">12.06<small>SAT 2026</small></div>
+          <div><h4>弾き語りワンマンライブ「灯」</h4><p>会場：○○（仮）／ OPEN 18:00 / START 18:30 ／ 前売 ¥3,000 / 当日 ¥3,500</p></div>
+          <a class="ticket" href="#contact">チケット予約</a>
+        </li>
+        <li>
+          <div class="date">12.20<small>SUN 2026</small></div>
+          <div><h4>アコースティックナイト vol.12</h4><p>会場：△△カフェ（仮）／ 出演：高橋周作 ほか ／ OPEN 17:00 / START 17:30</p></div>
+          <a class="ticket" href="#contact">チケット予約</a>
+        </li>
+        <li>
+          <div class="date">01.17<small>SAT 2027</small></div>
+          <div><h4>新春 路上ライブ</h4><p>場所：□□駅前（仮）／ 14:00〜 ／ 観覧無料</p></div>
+          <a class="ticket soldout" href="#">FREE</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="wrap">
+      <div class="sec-head"><h2>Music</h2><span>音源・動画</span><span class="sample">SAMPLE TITLES</span></div>
+      <div class="music-grid">
+        <article class="card">
+          <div class="cover c1"><div class="play"></div></div>
+          <div class="body">
+            <h4>タイトル未定 I</h4>
+            <p>1st Single / 2026（仮）</p>
+            <div class="links"><a href="#">Spotify</a><a href="#">Apple Music</a><a href="#">YouTube</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cover c2"><div class="play"></div></div>
+          <div class="body">
+            <h4>タイトル未定 II</h4>
+            <p>2nd Single / 2026（仮）</p>
+            <div class="links"><a href="#">Spotify</a><a href="#">Apple Music</a><a href="#">YouTube</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cover c3"><div class="play"></div></div>
+          <div class="body">
+            <h4>Live Recording</h4>
+            <p>弾き語りライブ音源（仮）</p>
+            <div class="links"><a href="#">SoundCloud</a><a href="#">YouTube</a></div>
+          </div>
+        </article>
+      </div>
+      <div class="video">
+        ▶ ここに YouTube の動画が埋め込まれます
+        <small>ライブ映像やミュージックビデオのURLをいただければ差し替えます</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head"><h2>Contact</h2><span>お問い合わせ・出演依頼</span><span class="sample">FORM IS NOT CONNECTED</span></div>
+      <div class="contact">
+        <div>
+          <p>ライブへの出演依頼、楽曲制作のご相談、取材のお問い合わせなどは、こちらのフォームまたはSNSのDMよりお気軽にご連絡ください。</p>
+          <p>※ このモックではフォームは送信されません。本番では送信先メールアドレスを設定します。</p>
+          <div class="sns">
+            <a href="https://www.instagram.com/syusaku.t_sql" target="_blank" rel="noopener">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault();alert('モックのため送信されません');">
+          <label for="name">お名前</label>
+          <input id="name" type="text" placeholder="山田 太郎">
+          <label for="email">メールアドレス</label>
+          <input id="email" type="email" placeholder="example@mail.com">
+          <label for="type">ご用件</label>
+          <select id="type">
+            <option>ライブ出演依頼</option>
+            <option>楽曲制作のご相談</option>
+            <option>取材・メディア</option>
+            <option>その他</option>
+          </select>
+          <label for="msg">内容</label>
+          <textarea id="msg" placeholder="ご依頼の内容をご記入ください"></textarea>
+          <div style="margin-top:18px"><button class="btn" type="submit" style="cursor:pointer">送信する</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" style="text-decoration:none">SHUSAKU TAKAHASHI</a><br>
+    © 2026 Shusaku Takahashi. All rights reserved. — MOCK / DESIGN SAMPLE
+  </div>
+</footer>
+
+</body>
+</html>
